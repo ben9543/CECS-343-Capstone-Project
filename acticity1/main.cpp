@@ -221,7 +221,16 @@ void displayMenu(){
     cout << "Enter\n'i' to input data,\n'd' to display a report,\n'q' to quit program:" << endl;
     cout << "==========================\n" << endl;
 }
-
+void displayAddData(){
+    cout << "\n==========================" << endl;
+    cout << "Enter\n't' to add tenant,\n'r' to record rent payment,\n'e' to record expense:" << endl;
+    cout << "==========================\n" << endl;
+}
+void displayDisplayOptions(){
+    cout << "\n==========================" << endl;
+    cout << "Enter\n't' to display tenants,\n'r' to display rents,\n'e' to display expenses,\n'a' to display annual report:" << endl;
+    cout << "==========================\n" << endl;
+}
 void displayTenants(){
     cout << left << setw(7);
     cout << "Apt#" << "Tenant name" << endl;
@@ -265,6 +274,12 @@ bool isValidInput(char input){
     else
         return false;
 }
+bool isValidAddDataInput(char input){
+    if (input == 't' || input == 'r' || input == 'e')
+        return true;
+    else
+        return false;
+}
 bool isValidDisplayInput(char input){
     if (input == 't' || input == 'r' || input == 'e' || input=='a')
         return true;
@@ -283,19 +298,23 @@ int main()
         do{
             displayMenu();
             cin >> userInput;
-            
         }while(!cin.fail() && !isValidInput(userInput));
         
         // 2. Switch depends on user input
-        switch (userInput) {
-            case 'i':
-                break;
-            case 'q':
-                isRunning = false;
-                break;
-            default:
-                cout << "Invalid input. Try it again" << endl;
-                break;
+        if (userInput == 'i') {
+            do{
+                displayAddData();
+                cin >> userInput;
+            }while(!cin.fail() && isValidAddDataInput(userInput));
+        }else if(userInput == 'd'){
+            do{
+                displayDisplayOptions();
+                cin >> userInput;
+            }while(!cin.fail() && isValidDisplayInput(userInput));
+        }else if(userInput == 'q'){
+            isRunning = false;
+        }else{
+            cout << "Invalid input. Try it again" << endl;
         }
     }
     cout << "Bye!" << endl;
