@@ -1,0 +1,109 @@
+@startuml activity3
+
+class Tenant {
+    +getName()
+    +getAptNum()
+    __private data__
+    -name
+    -aptNum
+}
+class TenantList {
+    +insertTenant()
+    +displayTenants()
+    +getAptNumByTenantName()
+    __private data__
+    -tenants
+}
+class Expense {
+    +getDay()
+    +getMonth()
+    +getCategory()
+    +getPayee()
+    +getAmount()
+    __private data__
+    -day
+    -month
+    -category
+    -payee
+    -amount
+}
+class ExpenseRecord {
+    +insertExp()
+    +displayExp()
+    +displaySummary()
+    __private data__
+    -expenses => vector<Expense*>
+    
+}
+class RentRow {
+    +getAptNum()
+    +getRentSum()
+    __private data__
+    -aptNum
+    -rent
+}
+class RentRecord {
+    +insertRentRow()
+    +displayRents()
+    +getSumOfRents()
+    __private data__
+    -rentRows => map<string, RentRow*>
+}
+
+
+class AnnualReport{
+    +display()
+    __private data__
+    -rentRecord
+    -expenseRecord
+    -expenses
+    -rents
+}
+
+class UserInterface{
+    +interact()
+    __private data__
+    -tenantList
+    -tenantInputScreen
+    -rentRecord
+    -rentInputScreen
+    -expenseRecord
+    -expenseInputScreen
+    -annualReport
+    -ch
+}
+
+interface InputScreen{
+    
+}
+
+class TenantInputScreen{
+
+}
+class RentInputScreen{
+    
+}
+class ExpenseInputScreen{
+    
+}
+
+InputScreen <|.. TenantInputScreen
+InputScreen <|.. RentInputScreen
+InputScreen <|.. ExpenseInputScreen
+
+Tenant --o TenantList: 0 .. 20
+Expense --o ExpenseRecord: 0 .. *
+ExpenseRecord *-- AnnualReport
+RentRow --o RentRecord: 0 .. 20
+RentRecord *-- AnnualReport
+
+UserInterface o-- TenantList
+UserInterface o-- ExpenseRecord
+UserInterface o-- AnnualReport
+UserInterface o-- RentRecord
+
+UserInterface *-- TenantInputScreen
+UserInterface *-- RentInputScreen
+UserInterface *-- ExpenseInputScreen
+
+@enduml
