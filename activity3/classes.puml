@@ -1,0 +1,22 @@
+@startuml ClassExample
+interface List 
+abstract class ExampleList <<abstract>> {
+    Here goes descriptions ...
+    ==
+    - String data
+    + void publicMethods()
+    - void privateMethods()
+    {abstract} void absMethods()
+}
+
+class Flight {
+
+}
+class Flight2{
+
+}
+List --|> ExampleList : Implements
+
+ExampleList --> Flight: Assoc1
+ExampleList --> Flight2: Assoc2
+@enduml
