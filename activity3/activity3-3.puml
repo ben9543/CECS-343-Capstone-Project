@@ -1,0 +1,145 @@
+@startuml activity3
+
+class Tenant {
+    +getName()
+    +getAptNum()
+    __private data__
+    -name
+    -aptNum
+}
+class TenantList {
+    +insertTenant()
+    +displayTenants()
+    +getAptNumByTenantName()
+    __private data__
+    -tenants
+}
+class Expense {
+    +getDay()
+    +getMonth()
+    +getCategory()
+    +getPayee()
+    +getAmount()
+    __private data__
+    -day
+    -month
+    -category
+    -payee
+    -amount
+}
+class ExpenseRecord {
+    +insertExp()
+    +displayExp()
+    +displaySummary()
+    __private data__
+    -expenses
+    
+}
+class RentRow {
+    +getAptNum()
+    +getRentSum()
+    __private data__
+    -aptNum
+    -rent
+}
+class RentRecord {
+    +insertRentRow()
+    +displayRents()
+    +getSumOfRents()
+    __private data__
+    -rentRows
+}
+
+
+class AnnualReport{
+    +display()
+    __private data__
+    -rentRecord
+    -expenseRecord
+    -expenses
+    -rents
+}
+
+/'
+interface InputScreen{
+    +inputData()
+}
+'/
+
+class TenantInputScreen{
+    +inputData()
+    __private data__
+    -tenantList
+    -tenantName
+    -aptNum
+}
+class RentInputScreen{
+    +inputData()
+    __private data__
+    -tenantList
+    -rentRecord
+    -renterName
+    -rentPaid
+    -month
+    -aptNo
+}
+class ExpenseInputScreen{
+    +inputData()
+    __private data__
+    -month
+    -day
+    -category
+    -payee
+    -amount
+}
+
+class OutPutScreen{
+    +display()
+    __private data__
+    -tenantList
+    -rentRecord
+    -expenseRecord
+    -annualReport
+}
+
+class UserInterface{
+    +interact()
+    __private data__
+    -outputScreen
+    -tenantInputScreen
+    -rentInputScreen
+    -expenseInputScreen
+    -ch
+}
+
+/' InputScreen associations '/
+TenantInputScreen "1" *-- TenantList
+RentInputScreen "1" *-- TenantList
+RentInputScreen "1" *-- RentRecord
+ExpenseInputScreen "1" *-- ExpenseRecord
+
+
+/'InputScreen <|. TenantInputScreen
+InputScreen <|. RentInputScreen
+InputScreen <|. ExpenseInputScreen'/
+
+TenantList "1..*" *-- Tenant
+RentRecord "1..*" *-- RentRow
+ExpenseRecord "1..*" *-- Expense
+
+OutPutScreen "1" o-- RentRecord
+OutPutScreen "1" o-- TenantList
+OutPutScreen "1" o-- ExpenseRecord
+OutPutScreen "1" o-up- AnnualReport
+
+
+ExpenseRecord --* "1" AnnualReport
+RentRecord --* "1" AnnualReport
+
+/' UserInterface associations '/
+UserInterface "1" *-- OutPutScreen
+UserInterface "1" *-- TenantInputScreen
+UserInterface "1" *-- RentInputScreen
+UserInterface "1" *-- ExpenseInputScreen
+
+@enduml

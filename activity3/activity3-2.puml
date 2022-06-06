@@ -1,0 +1,57 @@
+@startuml activity3
+
+top to bottom direction
+
+object UserInterface
+object TenantInputScreen
+object RentInputScreen
+object ExpenseInputScreen
+
+object TenantList
+object RentRecord
+object ExpenseRecord  
+
+object OutputScreen
+object AnnualReport
+object Tenant
+object RentRow
+object Expense 
+
+/'
+interface InputScreen{
+    +inputData()
+}
+'/
+
+
+/' UserInterface associations '/
+
+'UserInterface "1" o-- TenantList
+'UserInterface "1" o-- ExpenseRecord
+'UserInterface "1" o-- RentRecord
+
+
+UserInterface "1" *-- TenantInputScreen
+UserInterface "1" *-- RentInputScreen
+UserInterface "1" *-- ExpenseInputScreen
+UserInterface "1" *-- OutputScreen
+
+OutputScreen "1" o-right- AnnualReport
+OutputScreen "1" o-- TenantList
+OutputScreen "1" o-- ExpenseRecord
+OutputScreen "1" o-- RentRecord
+
+/' InputScreen associations '/
+TenantInputScreen "1" *--  TenantList
+RentInputScreen "1" *-- TenantList
+RentInputScreen "1" *-- RentRecord
+ExpenseInputScreen "1" *--ExpenseRecord
+
+AnnualReport "1" *-- ExpenseRecord
+AnnualReport "1" *-- RentRecord
+
+TenantList "1..*" *-- Tenant
+RentRecord "1..*" *-- RentRow
+ExpenseRecord "1..*" *-- Expense
+
+@enduml

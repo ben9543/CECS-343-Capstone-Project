@@ -33,8 +33,13 @@ package "Usecases" {
     NonFunctional:\n
     "
 
+    (5. Display Tenant List) as DTL
+    (6. Display Rent Record) as DRR
     (7. Display Expense Record) as DER
     (8. Display Annual Summary) as DAS
+    
+    Display ..>(DTL): "<<include>>"
+    Display ..>(DRR): "<<include>>"
     Display ..>(DER): "<<include>>"
     Display ..>(DAS): "<<include>>"
 

@@ -1,0 +1,16 @@
+@startuml
+(*) --> "Check total"
+If "total >= 90" then 
+--> [Yes] "Grade is A"
+else 
+    If "total >= 80" then
+    --> [Yes] "Grade is B" 
+    else
+        If "total >= 70" then
+        --> [Yes] "Grade is C"
+        else
+            If "total >= 60" then
+            --> [Yes] "Grade is D"
+            else
+                --> "Grade is F"
+@enduml
