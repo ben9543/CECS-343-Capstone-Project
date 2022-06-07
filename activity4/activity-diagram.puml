@@ -1,0 +1,25 @@
+@startuml Activity4
+
+(*)-->"Log in to the system"
+
+if "Is authorized?" then
+-right-> [Yes]"Authorize"
+
+"Authorize" --> "Start the program" 
+"Start the program" --> "Display menu"
+"Display menu" --> "Ask userinput"
+"Ask userinput again" -left-> "Ask userinput"
+
+"Ask userinput"-->[ch = 'i']"Insert data"
+"Ask userinput"-->[ch = 'd']"Display data"
+"Ask userinput"-->[ch = 'q']"Exit the program"
+"Ask userinput" -right->[invalid input]"Ask userinput again"
+
+else
+--> [No]"No previlege" 
+"No previlege" --> "Exit the program"
+
+
+"Exit the program"-->(*)
+
+@enduml
