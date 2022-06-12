@@ -1,11 +1,5 @@
 @startuml DisplayRentRecord
 
-Landlord -> System: displayTenant()
-System -> RentRecord: StoreData()
-RentRecord -> RentRecord: Fetch RentRecord.txt
-RentRecord -> DB: storeData()
-return success
-System <- RentRecord: display()
-Landlord <-- System: Output
+
 
 @enduml
