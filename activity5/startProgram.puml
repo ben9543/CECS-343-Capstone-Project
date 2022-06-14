@@ -1,0 +1,22 @@
+@startuml
+
+Landlord <- System: DisplayMenu()
+Landlord <- System: Ask user input
+alt The user input is valid
+  alt if user input = 'd'
+    System -> "Display Data"
+  end
+  alt if user input = 'i'
+    System -> "Insert Data"
+  end
+  alt if user input = 'q'
+    System -> "Quit Program"
+  end
+else The user input is invalid
+  loop 
+    Landlord <- System: DisplayMenu()
+    Landlord <- System: Ask userinput
+  end
+end
+
+@enduml
