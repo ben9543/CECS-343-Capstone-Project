@@ -1,42 +1,21 @@
 @startuml ben
 left to right direction
 actor Landlord as L
-actor "Authorized Landlord" as AL
 package "Usecases" {
-    
-    usecase LogIn as "**1. Log in the system**\n
-    ==
-    Summary:\nAuthenticate user before starting the program\nso that unauthenticated users cannot use the program.
-    --
-    NonFunctional:\n
-    "
-    (Ask Input) as AI
-    (Validation) as V
-    (Caching System) as Cache
-    LogIn --|>AI
-    LogIn --|>V
-    LogIn <.. Cache: "<<extend>>"
-    AI ..>(Input username): "<<include>>"
-    AI ..>(Input password): "<<include>>"
-    V ..>(Check if stored password & \ngiven password match): "<<include>>"
 
-    usecase Start as "**2. Start the program**\n
+    usecase Start as "**1. Start the program**\n
     ==
-    Summary:Ask user to choose options between\nInsert, Display, and Quit\n
-    --
-    NonFunctional:\n"
+    Summary:Ask user to choose options between\nInsert, Display, and Quit\n"
 
     usecase Display as "**Display data**\n
     ==
     Summary:\n
-    --
-    NonFunctional:\n
     "
 
-    (5. Display Tenant List) as DTL
-    (6. Display Rent Record) as DRR
-    (7. Display Expense Record) as DER
-    (8. Display Annual Summary) as DAS
+    (4. Display Tenant List) as DTL
+    (5. Display Rent Record) as DRR
+    (6. Display Expense Record) as DER
+    (7. Display Annual Summary) as DAS
     
     Display ..>(DTL): "<<include>>"
     Display ..>(DRR): "<<include>>"
@@ -48,7 +27,6 @@ package "Usecases" {
     DER ..> (Budget Category): "<<include>>"
     DER ..> (Payee): "<<include>>"
     DER ..> (Amount): "<<include>>"
-
     DAS ..> (Display Table): "<<include>>"
     DAS ..> (Display budget): "<<include>>"
     DAS ..> (Display balance): "<<include>>"
@@ -57,26 +35,21 @@ package "Usecases" {
     usecase InsertData as "**Insert data**\n
     ==
     Summary:\n
-    --
-    NonFunctional:\n
+
     "
-    (3. Add New Tenant) as ANT
-    (4. Input a Rental Payment) as IRP
+    (2. Add New Tenant) as ANT
+    (3. Input a Rental Payment) as IRP
     InsertData ..> ANT: "<<include>>"
     InsertData ..> IRP: "<<include>>"
 
     usecase Quit as "**Quit program**\n
     ==
     Summary:\n
-    --
-    NonFunctional:\n
+
     "
 }
 
-
-AL -|> L
-L -- LogIn
-AL -- Start
+L -- Start
 
 Start --|> Display
 Start --|> InsertData
