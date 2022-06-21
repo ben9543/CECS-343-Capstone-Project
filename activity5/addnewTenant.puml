@@ -1,0 +1,31 @@
+@startuml AddNewTenant
+
+loop
+
+Landlord -> System: Input name
+
+System -> System: ValidateInput() 
+
+alt name is valid
+
+  Landlord -> System: Input apartment number
+
+  System -> System: ValidateInput()
+
+  alt if apartment number is valid
+
+  System -> TenantList: InsertTanant()
+
+  System <-- TenantList: success
+
+  Landlord <-- System: success
+
+  else if apartment number is not valid
+      Landlord <-- System: Go to loop
+  end
+else name is invalid
+  Landlord <-- System: Go to loop
+  end
+end
+
+@enduml
