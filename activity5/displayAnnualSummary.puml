@@ -1,0 +1,13 @@
+@startuml DisplayAnnualSummary
+
+Landlord -> OutputScreen: DisplayTenants()
+OutputScreen -> AnnualSummary: Display()
+AnnualSummary -> RentRecord: GetSum()
+return success
+AnnualSummary -> ExpenseRecord: GetSum()
+return success
+AnnualSummary -> AnnualSummary: GenerateReport()
+Landlord <-- AnnualSummary: Output
+
+
+@enduml

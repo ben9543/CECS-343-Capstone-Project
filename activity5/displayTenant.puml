@@ -1,5 +1,8 @@
-@startuml DisplayRentRecord
+@startuml DisplayTenants
 
+Landlord -> OutputScreen: DisplayTenants()
+OutputScreen -> TenantList: Display()
+Landlord <-- TenantList: Output
 
 
 @enduml
