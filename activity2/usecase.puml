@@ -34,8 +34,7 @@ package "Usecases" {
 
     usecase InsertData as "**Insert data**\n
     ==
-    Summary:\n
-
+    Summary:Ask user to choose between the options between\nInput rental payment, and Add new tenant\n
     "
     (2. Add New Tenant) as ANT
     (3. Input a Rental Payment) as IRP
@@ -44,7 +43,7 @@ package "Usecases" {
 
     usecase Quit as "**Quit program**\n
     ==
-    Summary:\n
+    Summary: Program gets terminated.\n
 
     "
 }
