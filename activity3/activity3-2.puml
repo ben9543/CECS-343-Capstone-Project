@@ -3,6 +3,7 @@
 top to bottom direction
 
 object UserInterface
+object DBConnect
 object TenantInputScreen
 object RentInputScreen
 object ExpenseInputScreen
@@ -30,7 +31,7 @@ interface InputScreen{
 'UserInterface "1" o-- ExpenseRecord
 'UserInterface "1" o-- RentRecord
 
-
+UserInterface "1" *-right- DBConnect
 UserInterface "1" *-- TenantInputScreen
 UserInterface "1" *-- RentInputScreen
 UserInterface "1" *-- ExpenseInputScreen
