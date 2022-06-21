@@ -1,16 +1,27 @@
 @startuml
 
-Landlord <- System: DisplayMenu()
+Landlord -> System: Start the program
+
+System->DB:LoadAllData()
+
+return success
+
+System->System: DisplayMenu()
+
 Landlord <- System: Ask user input
+
 alt The user input is valid
   alt if user input = 'd'
-    System -> "Display Data"
+    Landlord -> System
+    return Go to display
   end
   alt if user input = 'i'
-    System -> "Insert Data"
+    Landlord -> System
+    return Go to insert data
   end
   alt if user input = 'q'
-    System -> "Quit Program"
+    Landlord -> System
+    return Go to quit
   end
 else The user input is invalid
   loop 
