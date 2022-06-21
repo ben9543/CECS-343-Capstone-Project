@@ -1,0 +1,26 @@
+@startuml InputRentalPayment
+
+loop
+
+Landlord -> System: Input rental payment data
+
+System -> System: ValidateInput()
+
+  Landlord -> System: Input apartment number
+
+  System -> System: ValidateInput()
+
+  alt if user input is valid
+
+    System -> DataStructure: InsertData()
+
+    System <-- DataStructure: success
+
+    Landlord <-- System: success
+
+  else user input is not valid
+    Landlord <-- System: Go to loop
+  end
+end
+
+@enduml
