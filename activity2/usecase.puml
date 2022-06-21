@@ -5,11 +5,17 @@ package "Usecases" {
 
     usecase Start as "**1. Start the program**\n
     ==
-    Summary:Ask user to choose options between\nInsert, Display, and Quit\n"
+    Summary:Ask user to choose options between\n
+    Insert, Display, and Quit.\n
+    Also need to retrieve all data\n
+    from DB as the program starts.
+    "
 
     usecase Display as "**Display data**\n
     ==
-    Summary:Choose to display between Annual\nsummary, Expense record, rent record,\nand display tenant list.\n
+    Summary:Choose to display between Annual\n
+    summary, Expense record, rent record,\n
+    and display tenant list.
     "
 
     (4. Display Tenant List) as DTL
@@ -34,7 +40,9 @@ package "Usecases" {
 
     usecase InsertData as "**Insert data**\n
     ==
-    Summary:Ask user to choose between the options between\nInput rental payment, and Add new tenant\n
+    Summary:Ask user to choose between\n 
+    the options between Input rental payment,\n
+    and Add new tenant\n
     "
     (2. Add New Tenant) as ANT
     (3. Input a Rental Payment) as IRP
@@ -44,13 +52,14 @@ package "Usecases" {
     usecase Quit as "**Quit program**\n
     ==
     Summary: Program gets terminated.\n
-
+    All data need to be flushed into DB\n
+    as the program gets terminated.
     "
 }
 
 L -- Start
 
-Start --|> 
+Start --|> Display
 Start --|> InsertData
 Start --|> Quit
 

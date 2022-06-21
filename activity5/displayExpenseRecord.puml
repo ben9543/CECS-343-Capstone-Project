@@ -1,6 +1,6 @@
 @startuml DisplayExpenseRecord
 
-Landlord -> OutputScreen: DisplayTenants()
+Landlord -> OutputScreen: Display ExpenseRecord
 OutputScreen -> ExpenseRecord: Display()
 Landlord <-- ExpenseRecord: Output
 

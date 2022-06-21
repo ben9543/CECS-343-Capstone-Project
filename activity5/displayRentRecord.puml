@@ -1,6 +1,6 @@
 @startuml DisplayRentRecord
 
-Landlord -> OutputScreen: DisplayTenants()
+Landlord -> OutputScreen: Display RentRecord
 OutputScreen -> RentRecord: Display()
 Landlord <-- RentRecord: Output
 
