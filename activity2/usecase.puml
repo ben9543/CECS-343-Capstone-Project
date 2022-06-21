@@ -9,7 +9,7 @@ package "Usecases" {
 
     usecase Display as "**Display data**\n
     ==
-    Summary:\n
+    Summary:Choose to display between Annual\nsummary, Expense record, rent record,\nand display tenant list.\n
     "
 
     (4. Display Tenant List) as DTL
@@ -50,7 +50,7 @@ package "Usecases" {
 
 L -- Start
 
-Start --|> Display
+Start --|> 
 Start --|> InsertData
 Start --|> Quit
 
