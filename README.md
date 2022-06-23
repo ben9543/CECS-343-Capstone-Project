@@ -24,7 +24,7 @@
 > The Annual Report uses data from the Rental Income Record and Expense Record to summarize how much money came in and how much went out during the year. All the rents are summed and the result is displayed. The expenses are summed and displayed by the budget category, which makes it easy to see, for example, how much was spent on repairs during the year. Finally, expenses are subtracted from income to show how much money John made (or lost) during the year.
 ---
 
-> John tells you that he wants the program pretty much duplicate what he's currently doing on the paper forms. He wants to be able to enter data about tenants, rents, and expenses, and display the various reports
+> John tells you that he wants the program pretty much duplicate what he's currently doing on the paper forms. He wants to be able to enter data about tenants, rents, and expenses, and display the various reports.
 ---
 
 ## Activities
