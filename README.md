@@ -24,26 +24,41 @@
 
 ## Activities
 
-- Activity 1:
+- Activity 1: Overall code implementaion of the program in C++
 
-    - Overall code implementaion of the program
+- Activity 2: Usecase Diagram
 
-- Activity 2:
+- Activity 3: Conceptual Class Diagrams
 
-- Activity 3:
+    1. CRC cards
 
-- Activity 4:
+    2. An overall class diagram showing the relationships and multiplicity + A narrative that describes the overall class diagram.
 
-- Activity 5:
+    3. All designed classes with attributes and methods + A narrative that describes the attributes and methods
 
-- Activity 6:
+- Activity 4: Acitivity Diagram
 
-- Activity 7:
+    1. One activity diagram represents an an overall use case diagram
 
-- Activity 8:
+    2. One activity diagram represents one of your use cases.
+
+- Activity 5: Sequence Diagram (for each usecase)
+
+- Activity 6: Component Diagram
+
+    1. Create an overall UML Component diagram for the project
+    2. Create a detailed UML component diagram of your choice.
+
+- Activity 7: Actual code implementation of the project (Java)
+
+- Activity 8: Collaboration Diagram
+
+    - Convert the "Add Tenant" sequence diagram to a collaboration diagram
 
 - Activity 9:
 
-- Activity 10:
+    - Create a state diagram for a Tenant object.
 
-- Activity 11:
+- Activity 10: Unit Testing Result
+
+- Activity 11: Final Report
