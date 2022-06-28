@@ -1,0 +1,8 @@
+@startuml InsertTenantStateDiagram
+[*] -> NoTenant: Intial pseudostate
+NoTenant --> InputIsNotValid: Insert input
+InputIsNotValid --> InputIsValid: isValid()
+InputIsNotValid <-- InputIsValid: Input is not valid
+InputIsValid -> TenantAdded: Add Tenant
+TenantAdded --> [*]
+@enduml
