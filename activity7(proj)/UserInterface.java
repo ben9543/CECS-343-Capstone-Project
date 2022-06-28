@@ -69,8 +69,8 @@ class UserInterface {
         } else if(this.ch=='r'){
             this.ri.getInput();
         } else if(this.ch=='e'){
-            // this.ei.getInput();
-            System.out.println("In progress");
+            this.ei.getInput();
+            //System.out.println("In progress");
         }
     }
     
