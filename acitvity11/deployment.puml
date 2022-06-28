@@ -1,0 +1,20 @@
+@startuml deployment
+node Server[
+    Server
+    ====
+    GitHub Repository
+    ----
+    CECS-343-Capstone-Project
+]
+cloud Internet
+node PC {
+    folder FileSystem{
+        file ZipFile
+    }
+}
+
+Server->Internet
+Internet--> PC
+PC -right-> ZipFile: Store source code
+
+@enduml
